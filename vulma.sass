@@ -1,0 +1,12 @@
+$fa-font-path: '~font-awesome/fonts/';
+
+@import '~bulma';
+@import '~font-awesome/scss/font-awesome';
+
+// Colors
+@each $name, $pair in $colors
+  $color: nth($pair, 1)
+  $color-invert: nth($pair, 2)
+  .bgcolor-#{$name}
+    background-color: $color !important
+    color: $color-invert !important
