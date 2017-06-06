@@ -1,5 +1,5 @@
 <template lang='pug'>
-  a.nav-item(:class='navItemClass')
+  a.nav-item(@click='redirect', :class='[navItemClass, routeClass]')
     .icon(v-if='icon')
       i(:class='iconClass')
     slot
@@ -7,12 +7,12 @@
 
 <script>
 import iconMixin from '../../../mixins/icon'
+import routeMixin from '../../../mixins/route'
 
 export default {
   name: 'vulma-navitem',
-  mixins: [iconMixin],
+  mixins: [iconMixin, routeMixin],
   props: {
-    active: [Boolean, String],
     isTab: {
       type: [Boolean, String],
       default: true
@@ -20,10 +20,7 @@ export default {
   },
   computed: {
     navItemClass: function () {
-      return {
-        'is-active': this.active,
-        'is-tab': this.isTab
-      }
+      return { 'is-tab': this.isTab }
     }
   }
 }
