@@ -22,5 +22,9 @@
     "pug-loader": "^2.3.0",
     "sass-loader": "^6.0.5",
     "webpack": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oswaldofreitas/vulma.git"
   }
 }
