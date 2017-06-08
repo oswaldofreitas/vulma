@@ -1,2 +1,2 @@
-export { default as Tab } from './collapsible.vue'
-export { default as Tabs } from './collapsible-item.vue'
+export { default as CollapsibleItem } from './collapsible-item.vue'
+export { default as Collapsible } from './collapsible.vue'
