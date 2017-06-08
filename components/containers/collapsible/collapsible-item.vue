@@ -5,7 +5,8 @@
         .icon(v-if='icon')
           i(:class='iconClass')
         strong {{title}}
-        .icon.is-pulled-right: i.fa.fa-angle-down
+        .icon.is-pulled-right
+          i.fa(:class="{ opened ? 'fa-angle-up' : fa-angle-down }")
       transition(:duration='{ enter: 700, leave: 300 }', enter-active-class='animated fadeIn', leave-active-class='animated fadeOut')
         .body.column.is-12.box(v-show='opened')
           slot
