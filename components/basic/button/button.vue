@@ -1,6 +1,6 @@
 <template lang='pug'>
   button.button(@click='onClick', :class='[...colorClass, ...sizeClass]')
-    .icon(v-if='icon')
+    .icon(v-if='icon', :class='[...sizeClass]')
       i(:class='iconClass')
     span
       slot
