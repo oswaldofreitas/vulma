@@ -136,6 +136,9 @@ export default {
       return this.maxSelected !== 1
     }
   },
+  watch: {
+    model: 'updateList'
+  },
   methods: {
     open: function () {
       this.searchTerm = ''
