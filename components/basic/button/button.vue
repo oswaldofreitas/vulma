@@ -2,8 +2,7 @@
   button.button(@click='onClick', :class='[...colorClass, ...sizeClass]')
     .icon(v-if='icon', :class='[...sizeClass]')
       i(:class='iconClass')
-    span
-      slot
+    slot
 </template>
 
 <script>
