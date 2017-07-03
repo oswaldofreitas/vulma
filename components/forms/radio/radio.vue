@@ -31,7 +31,7 @@ export default {
     prop: 'selectedValue'
   },
   props: {
-    selectedValue: [String, Number, Date, Object, Array],
+    selectedValue: [String, Number, Date, Object, Array, Boolean],
     label: String,
     src: Array,
     text: String,
