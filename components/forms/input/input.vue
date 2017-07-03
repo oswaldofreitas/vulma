@@ -40,7 +40,10 @@ export default {
   },
   methods: {
     onInput(e) {
-      this.model = e.target.value
+      if (this.type === 'number')
+        this.model = Number(e.target.value)
+      else
+        this.model = e.target.value
     },
     onFocus() {
       this.$emit('focus')
