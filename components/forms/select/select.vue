@@ -137,7 +137,8 @@ export default {
     }
   },
   watch: {
-    model: 'updateList'
+    model: 'updateList',
+    src: 'updateList'
   },
   methods: {
     open: function () {
@@ -147,7 +148,7 @@ export default {
     close: function () {
       this.opened = false
     },
-    updateList: function () {
+    updateList: function () { // => MUDAR PARA COMPUTED
       this.number_selected = 0
       this.list = this.src.reduce((o, row, index) => {
         const groupname = this.group ? deepValue(row, this.group) : ''
