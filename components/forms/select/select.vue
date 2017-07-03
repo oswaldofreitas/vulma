@@ -3,7 +3,7 @@
     label.label {{label}}
     .control
       vulma-input(v-if='!opened', v-model='formattedSelectedText' :placeholder='placeholder', read-only, icon-right='fa-angle-down', @focus='open', :icon-left='icon', :size='size')
-      transition(:duration='{ enter: 700, leave: 400 }', leave-active-class='animated zoomOut', enter-active-class='animated zoomIn')
+      transition(:duration='{ enter: 700, leave: 0 }', enter-active-class='animated zoomIn')
         .box(v-if='opened', v-click-outside='close')
           vulma-input(v-if='enableSearch', v-model='searchTerm', icon-left='fa-search', size='small')
           .items
@@ -148,7 +148,7 @@ export default {
     close: function () {
       this.opened = false
     },
-    updateList: function () { // => MUDAR PARA COMPUTED
+    updateList: function () {
       this.number_selected = 0
       this.list = this.src.reduce((o, row, index) => {
         const groupname = this.group ? deepValue(row, this.group) : ''
