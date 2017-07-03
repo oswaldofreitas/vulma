@@ -2,7 +2,8 @@
   button.button(@click='onClick', :class='[...colorClass, ...sizeClass]')
     .icon(v-if='icon', :class='[...sizeClass]')
       i(:class='iconClass')
-    slot
+    span(v-if='hasContent')
+      slot
 </template>
 
 <script>
@@ -14,6 +15,14 @@ import sizeMixin from '../../../mixins/size'
 export default {
   name: 'vulma-button',
   mixins: [colorMixin, iconMixin, routeMixin, sizeMixin],
+  data() {
+    return {
+      hasContent: false
+    }
+  },
+  mounted() {
+    this.hasContent = Boolean(this.$slots.default)
+  },
   methods: {
     onClick: function () {
       this.$emit('click')
