@@ -19,7 +19,7 @@ export default {
   mixins: [iconLeftRightMixin, modelMixin, sizeMixin],
   props: {
     value: {
-      type: String,
+      type: [String, Number],
       required: true
     },
     type: {
