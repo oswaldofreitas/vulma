@@ -1,6 +1,6 @@
 <template lang='pug'>
   .container
-    vulma-input(v-if='!opened', v-model='formattedSelectedDateInput', :label='label', placeholder='Select a date', read-only, icon-right='fa-calendar', @focus='open')
+    vulma-input(v-if='!opened', v-model='formattedSelectedDateInput', :label='label', placeholder='Select a date', read-only, icon-right='fa-calendar', @focus='open', :size='size')
     .box.is-paddingless(v-else)
       button.delete(v-if='showCloseButton', @click='close')
       .header.has-text-centered(:class='bgColorClass')
@@ -131,11 +131,12 @@
 <script>
 import { colorDefaultPrimaryMixin } from '../../../mixins/color'
 import modelMixin from '../../../mixins/model'
+import sizeMixin from '../../../mixins/size'
 import { today, compareDates, addYears, addMonths, addDays, firstDayOfMonth, lastDayOfMonth } from '../../../utils/datetime'
 
 export default {
   name: 'vulma-datepicker',
-  mixins: [colorDefaultPrimaryMixin, modelMixin],
+  mixins: [colorDefaultPrimaryMixin, modelMixin, sizeMixin],
   props: {
     value: {
       type: Date,
