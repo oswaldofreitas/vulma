@@ -163,13 +163,13 @@ export default {
     min: {
       type: Date,
       default: function () {
-        return addYears(today(), -50)
+        return addYears(today(), -100)
       }
     },
     max: {
       type: Date,
       default: function () {
-        return addYears(today(), 50)
+        return addYears(today(), 100)
       }
     },
     autoSelectToday: {
