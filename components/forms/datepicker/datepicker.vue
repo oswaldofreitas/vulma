@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .container
+  .datepicker.field
     vulma-input(v-if='!opened', v-model='formattedSelectedDateInput', :label='label', placeholder='Select a date', read-only, icon-right='fa-calendar', @focus='open', :size='size')
     .box.is-paddingless(v-else)
       button.delete(v-if='showCloseButton', @click='close')
