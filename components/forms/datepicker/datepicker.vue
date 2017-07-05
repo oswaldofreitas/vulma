@@ -132,7 +132,7 @@
 import { colorDefaultPrimaryMixin } from '../../../mixins/color'
 import modelMixin from '../../../mixins/model'
 import sizeMixin from '../../../mixins/size'
-import { today, compareDates, addYears, addMonths, addDays, firstDayOfMonth, lastDayOfMonth } from '../../../utils/datetime'
+import { today, compareDates, addYears, addMonths, addDays, firstDayOfMonth, lastDayOfMonth, toLocaleDateString } from '../../../utils/datetime'
 
 export default {
   name: 'vulma-datepicker',
@@ -204,14 +204,14 @@ export default {
   },
   computed: {
     formattedSelectedDate: function () {
-      return this.model.toLocaleDateString(this.locale, {
+      return toLocaleDateString(this.locale, this.model, {
         weekday: 'short',
         day: 'numeric',
         month: 'short'
       })
     },
     formattedSelectedDateInput: function () {
-      return this.model.toLocaleDateString(this.locale, {
+      return toLocaleDateString(this.locale, this.model, {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric'
@@ -303,7 +303,7 @@ export default {
       }
       this.days = []
       let date = firstDayOfMonth(this.month.index, this.year)
-      this.month.text = date.toLocaleDateString(this.locale, { month: 'long' })
+      this.month.text = toLocaleDateString(this.locale, date, { month: 'long' })
       while (date.getMonth() === this.month.index) {
         let day = date.getDate()
         let weekday = date.getDay()
@@ -313,7 +313,7 @@ export default {
             index += 7
           if (day === 1)
             this.gap = index
-          this.weekdays[index].label = date.toLocaleDateString(this.locale, { weekday: 'narrow' })
+          this.weekdays[index].label = toLocaleDateString(this.locale, date, { weekday: 'narrow' })
         }
         this.days.push({ date: new Date(date), day, weekday })
         addDays(date, 1)
@@ -331,7 +331,7 @@ export default {
         if (this.canShowMonth(i, this.year))
           this.months.push({
             index: i,
-            text: firstDayOfMonth(i, this.year).toLocaleDateString(this.locale, { month: 'short' })
+            text: toLocaleDateString(this.locale, firstDayOfMonth(i, this.year), { month: 'short' })
           })
       }
     },

@@ -26,3 +26,7 @@ export function firstDayOfMonth(month, year) {
 export function lastDayOfMonth(month, year) {
   return addDays(addMonths(firstDayOfMonth(month, year), 1), -1)
 }
+export function toLocaleDateString(locale, date, options) {
+  const dateWithTimezoneOffset = new Date(date.getTime() + date.getTimezoneOffset() * 60000)
+  return dateWithTimezoneOffset.toLocaleDateString(locale, options)
+}
