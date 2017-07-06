@@ -1,4 +1,5 @@
 export * from './basic'
 export * from './containers'
+export * from './data'
 export * from './forms'
 export * from './layout'
