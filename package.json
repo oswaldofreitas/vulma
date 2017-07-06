@@ -1,6 +1,6 @@
 {
   "name": "vulma",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Bulma based Vue UI components",
   "main": "index.js",
   "scripts": {},
