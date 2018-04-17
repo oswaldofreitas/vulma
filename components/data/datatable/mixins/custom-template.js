@@ -1,7 +1,7 @@
 export default {
   methods: {
     hasCustomTemplate: function (col) {
-      return Boolean(this.$scopedSlots[col.prop])
+      return Boolean(this.$scopedSlots[col.slot])
     }
   }
 }
